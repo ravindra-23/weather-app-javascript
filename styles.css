@@ -23,6 +23,14 @@ button {
     cursor: pointer;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header */
+
 .title {
     font-size: 1.5rem;
 }
@@ -99,4 +107,53 @@ button {
     .search-section:hover .search-input {
         width: 150px;
     }
+}
+
+/* Main */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+/* Current Info */
+
+.current-info {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-bottom: 2rem;
+}
+
+.weather-icon {
+    width: 150px;
+    height: auto;
+}
+
+.location-name {
+    font-size: 2rem;
+}
+
+.temperature {
+    font-size: 3rem;
+}
+
+.weather-condition {
+    font-size: 2rem;
+}
+
+.current-weather-details {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.sunrise, .sunset {
+    width: 70px;
+    height: auto;
 }
