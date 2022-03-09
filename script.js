@@ -21,6 +21,7 @@ const wind = document.querySelector('.wind-value')
 const visibility = document.querySelector('.visibility-value')
 const sunriseTime = document.querySelector('.sunrise-time')
 const sunsetTime = document.querySelector('.sunset-time')
+const forecastSection = document.querySelector('.forecast-data')
 
 // Functions
 
@@ -32,8 +33,6 @@ const getTimeAndDay = () => {
     currentMonth.textContent = months[month]
     currentDay.textContent = days[day]
     currentDate.textContent = date
-
-    console.log(time)
 }
 
 const fetchCurrentWeather = async (city) => {
@@ -57,6 +56,7 @@ const fetchWeather = async (lat, lon) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,&appid=${API_KEY}&units=metric`)
     const data = await response.json();
     console.log(data)
+    forecastData(data.daily)
 }
 
 const setWeatherData = (data) => {
@@ -67,20 +67,20 @@ const setWeatherData = (data) => {
     pressure.textContent = `${Math.floor(data.main.pressure * 0.02953)} inHg`
     visibility.textContent = `${Math.floor(data.visibility / 1000)} KM`
     wind.textContent = `${Math.floor(data.wind.speed * 3.6)} Km/hr`
-    sunriseTime.textContent = formatTime(data.sys.sunrise)
-    sunsetTime.textContent = formatTime(data.sys.sunset)
+    sunriseTime.textContent = window.moment(data.sys.sunrise*1000).format('hh:mm a')
+    sunsetTime.textContent = window.moment(data.sys.sunset*1000).format('hh:mm a')
 }
 
-const formatTime = (time) => {
-    let unixTime = time
-    const date = new Date(unixTime * 1000)
-    const hours = date.getHours();
-    const hoursIn12Hr = hours >= 13 ? hours % 12 : hours
-    const minutes = date.getMinutes()
-    const ampm = hours > 12 ? 'PM' : 'AM'
-    const formattedTime = `${hoursIn12Hr < 10 ? `0${hoursIn12Hr}` : hoursIn12Hr}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`
-    return formattedTime
-}
+const forecastData = (dailyData) => {
+    forecastSection.innerHTML = dailyData?.map(data => {
+        return `<div class="forecast-section">
+                    <h2 class="day-info"><span class="day">${window.moment(data.dt*1000).format('ddd')}</span>, <span class="date">${window.moment(data.dt*1000).format('Do')}</span></h2>
+                    <img src='./images/cloudy.svg' alt="weather icon" class="forecast-weather-icon"/>
+                    <p class="temperatures"><span class="max-temp">${Math.floor(data.temp.max)}°C</span> <span class="min-temp">${Math.floor(data.temp.min)}°C</span></p>
+                    <p class="weather-condition">${data.weather[0].main}</p>
+                </div>`
+    }).join('')
+} 
 
 
 // Event Listeners
