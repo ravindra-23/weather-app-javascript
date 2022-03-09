@@ -27,44 +27,56 @@
 
     <main>
         <div class="container">
-            <div class="current-info">
-                <h2 class="location-name">Ahmedabad</h2>
-                <h3 class="day-date">Wednesday, March 9</>
-                <img src="./images/clear-day.svg" alt="clear day" class="weather-icon">
-                <h2 class="temperature">25°C</h2>
-                <h3 class="weather-condition">Clear</h3>
+
+            <div class="error-section">
+                <h2 class="error-text">City Name or Data not Found</h2>
             </div>
 
-            <div class="current-weather-details">
-                <div class="humidity flex">
-                    <h2 class="humidity-title">Humidity</h2>
-                    <p class="humidity-value value"></p>
+            <div class="current-weather-section">
+                <div class="current-info">
+                    <h2 class="location-name">Ahmedabad</h2>
+                    <h3 class="day-date">Wednesday, March 9</h1>
+                    <img src="./images/clear-day.svg" alt="clear day" class="weather-icon">
+                    <h2 class="temperature">25°C</h2>
+                    <h3 class="weather-condition">Clear</h3>
                 </div>
-                <div class="pressure flex">
-                    <h2 class="pressure-title">Pressure</h2>
-                    <p class="pressure-value value"></p>
-                </div>
-                <div class="wind flex">
-                    <h2 class="wind-title">Wind</h2>
-                    <p class="wind-value value"></p>
-                </div>
-                <div class="visibility flex">
-                    <h2 class="visibility-title">Visibility</h2>
-                    <p class="visibility-value value"></p>
-                </div>
-
-                <div class="sunrise-sunset">
-                    <div class="sunrise-info">
-                        <img src="./images/sunrise.svg" alt="sunrise icon" class="sunrise"/>
-                        <h3 class="sunrise-time"></h3>
+    
+                <div class="current-weather-details">
+                    <div>
+                        <div class="humidity flex">
+                            <h2 class="humidity-title">Humidity</h2>
+                            <p class="humidity-value value"></p>
+                        </div>
+                        <div class="pressure flex">
+                            <h2 class="pressure-title">Pressure</h2>
+                            <p class="pressure-value value"></p>
+                        </div>
+                        <div class="wind flex">
+                            <h2 class="wind-title">Wind</h2>
+                            <p class="wind-value value"></p>
+                        </div>
+                        <div class="visibility flex">
+                            <h2 class="visibility-title">Visibility</h2>
+                            <p class="visibility-value value"></p>
+                        </div>
                     </div>
-
-                    <div class="sunset-info">
-                        <img src="./images/sunset.svg" alt="sunset icon" class="sunset"/>
-                        <h3 class="sunset-time"></h3>
+    
+                    <div class="sunrise-sunset">
+                        <div class="sunrise-info">
+                            <img src="./images/sunrise.svg" alt="sunrise icon" class="sunrise"/>
+                            <h3 class="sunrise-time"></h3>
+                        </div>
+    
+                        <div class="sunset-info">
+                            <img src="./images/sunset.svg" alt="sunset icon" class="sunset"/>
+                            <h3 class="sunset-time"></h3>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="forecast-data"></div>
+
         </div>
     </main>
 
