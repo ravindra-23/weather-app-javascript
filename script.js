@@ -23,6 +23,7 @@ const sunriseTime = document.querySelector('.sunrise-time')
 const sunsetTime = document.querySelector('.sunset-time')
 const forecastSection = document.querySelector('.forecast-data')
 const weatherIcon = document.querySelector('.weather-icon')
+const infoSection = document.querySelector('.info-section')
 
 // Functions
 
@@ -44,12 +45,14 @@ const fetchCurrentWeather = async (city) => {
     if(data.cod === 200) {
         mainContainer.style.display = 'block'
         errorMessage.style.display = 'none'
+        infoSection.style.display = 'none'
         getTimeAndDay();
         fetchWeather(data.coord.lat, data.coord.lon)
         setWeatherData(data)
     } else if(data.cod === '404') {
         mainContainer.style.display = 'none'
         errorMessage.style.display = 'block'
+        infoSection.style.display = 'block'
     }
 }
 
@@ -127,5 +130,6 @@ searchInput.addEventListener('keyup', e => {
     e.preventDefault();
     if(e.key == 'Enter' && searchInput.value != '') {
         fetchCurrentWeather(searchInput.value)
+        searchInput.value = ''
     }
 })

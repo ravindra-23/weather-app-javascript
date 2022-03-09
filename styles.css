@@ -45,13 +45,17 @@ header {
     align-items: center;
 }
 
-.error-section {
+.error-section, .info-section {
     display: none;
     align-self: center;
     margin-top: 4rem;
     background: #50a8ea;
     padding: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.info-section {
+    display: block;
 }
 
 
@@ -112,27 +116,13 @@ header {
 	transform: scale(.75);
 }
 
-.location-btn {
-    background: white;
-    border: none;
-    border-radius: 50%;
-	width: 3em;
-	height: 3em;
-    display: flex;
-}
-
-.location-icon {
-    width: 20px;
-    margin: auto;
-}
-
 
 
 /* Main */
 
 .container {
     display: none;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 2rem;
 }
@@ -218,6 +208,7 @@ header {
     padding: 1rem;
     border-radius: 10px;
     margin-right: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .max-temp {
@@ -250,10 +241,13 @@ header {
         height: auto;
     }
 
+}
+
+@media (min-width: 1600px) {
+
     .forecast-data {
         overflow-x: hidden;
     }
 }
-
 
 
