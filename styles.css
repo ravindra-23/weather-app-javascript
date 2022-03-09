@@ -198,6 +198,33 @@ header {
     align-items: center;
 }
 
+/* forecast section */
+
+.forecast-data {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+}
+
+.forecast-section {
+    min-width: 150px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-right: 2rem;
+}
+
+.max-temp {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
 @media (min-width: 768px) {
 
     .search-section:hover .search-input {
@@ -222,5 +249,11 @@ header {
         width: 100px;
         height: auto;
     }
+
+    .forecast-data {
+        overflow-x: hidden;
+    }
 }
+
+
 
