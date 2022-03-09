@@ -22,6 +22,7 @@ const visibility = document.querySelector('.visibility-value')
 const sunriseTime = document.querySelector('.sunrise-time')
 const sunsetTime = document.querySelector('.sunset-time')
 const forecastSection = document.querySelector('.forecast-data')
+const weatherIcon = document.querySelector('.weather-icon')
 
 // Functions
 
@@ -69,18 +70,55 @@ const setWeatherData = (data) => {
     wind.textContent = `${Math.floor(data.wind.speed * 3.6)} Km/hr`
     sunriseTime.textContent = window.moment(data.sys.sunrise*1000).format('hh:mm a')
     sunsetTime.textContent = window.moment(data.sys.sunset*1000).format('hh:mm a')
+    weatherIcon.src = setWeatherIcons(data.weather[0].id)
+
 }
 
 const forecastData = (dailyData) => {
     forecastSection.innerHTML = dailyData?.map(data => {
+        const imgSource = setWeatherIcons(data.weather[0].id)
         return `<div class="forecast-section">
                     <h2 class="day-info"><span class="day">${window.moment(data.dt*1000).format('ddd')}</span>, <span class="date">${window.moment(data.dt*1000).format('Do')}</span></h2>
-                    <img src='./images/cloudy.svg' alt="weather icon" class="forecast-weather-icon"/>
+                    <img src=${imgSource} alt="weather icon" class="forecast-weather-icon"/>
                     <p class="temperatures"><span class="max-temp">${Math.floor(data.temp.max)}°C</span> <span class="min-temp">${Math.floor(data.temp.min)}°C</span></p>
                     <p class="weather-condition">${data.weather[0].main}</p>
                 </div>`
     }).join('')
 } 
+
+const setWeatherIcons = (id) => {
+    if(id >= 200 && id < 203) {
+        const source = './images/thunderstorms-rain.svg'
+        return source
+    } else if(id >=210 && id < 233) {
+        const source = './images/thunderstorms.svg'
+        return source
+    } else if(id >= 300 && id < 322) {
+        const source = './images/drizzle.svg'
+        return source
+    } else if(id >= 500 && id < 532) {
+        const source = './images/rain.svg'
+        return source
+    } else if(id >= 600 && id < 623) {
+        const source = './images/snow.svg'
+        return source
+    } else if(id === 701) {
+        const source = './images/mist.svg'
+        return source
+    } else if(id >= 711 && id < 772) {
+        const source = './images/haze.svg'
+        return source
+    } else if(id === 800) {
+        const source = './images/clear-day.svg'
+        return source
+    } else if(id === 804) {
+        const source = './images/overcast.svg'
+        return source
+    } else if(id === 801 || id === 802) {
+        const source = './images/partly-cloudy-day.svg'
+        return source
+    } 
+}
 
 
 // Event Listeners
