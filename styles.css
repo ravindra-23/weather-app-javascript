@@ -12,12 +12,6 @@ body {
     color: #2c3246;
 }
 
-header {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 button {
     cursor: pointer;
@@ -29,7 +23,37 @@ button {
     align-items: center;
 }
 
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
 /* Header */
+
+header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-section {
+    display: none;
+    align-self: center;
+    margin-top: 4rem;
+    background: #50a8ea;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 
 .title {
     font-size: 1.5rem;
@@ -107,13 +131,10 @@ button {
 /* Main */
 
 .container {
+    display: none;
     width: 80%;
     margin: 0 auto;
     margin-top: 2rem;
-}
-
-.error-section {
-    display: none;
 }
 
 /* Current Info */
@@ -153,6 +174,7 @@ button {
 .current-weather-details {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 360px;
     background: #fff;
     padding: 1rem;
@@ -160,9 +182,20 @@ button {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.value, .sunrise-time, .sunset-time {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .sunrise, .sunset {
     width: 70px;
     height: auto;
+}
+
+.sunrise-info, .sunset-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -179,6 +212,7 @@ button {
     .current-info {
         width: 30%;
     }
+
     .current-weather-details {
         width: 40%;
         justify-content: space-between;
