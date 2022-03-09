@@ -102,12 +102,7 @@ button {
     margin: auto;
 }
 
-@media (min-width: 768px) {
 
-    .search-section:hover .search-input {
-        width: 150px;
-    }
-}
 
 /* Main */
 
@@ -117,7 +112,16 @@ button {
     margin-top: 2rem;
 }
 
+.error-section {
+    display: none;
+}
+
 /* Current Info */
+
+.current-weather-section {
+    display: flex;
+    flex-direction: column;
+}
 
 .current-info {
     display: flex;
@@ -147,6 +151,9 @@ button {
 }
 
 .current-weather-details {
+    display: flex;
+    flex-direction: column;
+    height: 360px;
     background: #fff;
     padding: 1rem;
     border-radius: 10px;
@@ -157,3 +164,29 @@ button {
     width: 70px;
     height: auto;
 }
+
+@media (min-width: 768px) {
+
+    .search-section:hover .search-input {
+        width: 150px;
+    }
+
+    .current-weather-section {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .current-info {
+        width: 30%;
+    }
+    .current-weather-details {
+        width: 40%;
+        justify-content: space-between;
+    }
+
+    .sunrise, .sunset {
+        width: 100px;
+        height: auto;
+    }
+}
+
