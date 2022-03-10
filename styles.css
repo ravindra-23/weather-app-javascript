@@ -109,7 +109,7 @@ header {
 .search-section:hover .search-input {
     padding-left: 2em;
 	padding-right: 1em;
-	width: 100px;
+	width: 120px;
 }
 
 .search-btn:active {
