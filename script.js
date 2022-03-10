@@ -9,7 +9,8 @@ const months = ["January","February","March","April","May","June","July","August
 const currentDay = document.querySelector('.day')
 const currentMonth = document.querySelector('.month')
 const currentDate = document.querySelector('.date')
-const searchInput = document.querySelector('#search-input')
+const form = document.querySelector('.search-section')
+const searchInput = document.querySelector('.search-input')
 const mainContainer = document.querySelector('.container')
 const errorMessage = document.querySelector('.error-section')
 const locationName = document.querySelector('.location-name')
@@ -126,9 +127,9 @@ const setWeatherIcons = (id) => {
 
 // Event Listeners
 
-searchInput.addEventListener('keyup', e => {
+form.addEventListener('submit', e => {
     e.preventDefault();
-    if(e.key == 'Enter' && searchInput.value != '') {
+    if(searchInput.value != '') {
         fetchCurrentWeather(searchInput.value)
         searchInput.value = ''
     }
